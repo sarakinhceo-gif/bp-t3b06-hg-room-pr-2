@@ -1,330 +1,86 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="sage" data-build="a1b2c3d4">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
-    <title>화곡 룸싸롱 가격 블로그 | 프리미엄 공간의 합리적 선택</title>
-    <meta name="description" content="화곡 룸싸롱 가격의 실제 데이터와 서비스 스펙을 분석합니다. 2025년 기준 객실별 가격대, 포함 서비스, 예약 시 꿀팁까지 전문가가 전합니다.">
-    <meta name="keywords" content="화곡 룸싸롱 가격, 화곡 룸싸롱, 화곡 룸싸롱 추천, 강서구 룸싸롱 가격, 룸싸롱 가격 비교, 화곡 프리미엄 룸싸롱">
-    <link rel="canonical" href="https://t3b06-hg-room-pr-2.vercel.app/blog">
-    <meta property="og:title" content="화곡 룸싸롱 가격 블로그 | 프리미엄 공간의 합리적 선택">
-    <meta property="og:description" content="화곡 룸싸롱 가격의 실제 데이터와 서비스 스펙을 분석합니다. 2025년 기준 객실별 가격대, 포함 서비스, 예약 시 꿀팁까지 전문가가 전합니다.">
-    <meta property="og:url" content="https://t3b06-hg-room-pr-2.vercel.app/blog">
-    <meta property="og:type" content="article">
-    <meta property="og:image" content="https://t3b06-hg-room-pr-2.vercel.app/images/og-blog.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="화곡 룸싸롱 가격 블로그 | 프리미엄 공간의 합리적 선택">
-    <meta name="twitter:description" content="화곡 룸싸롱 가격의 실제 데이터와 서비스 스펙을 분석합니다. 2025년 기준 객실별 가격대, 포함 서비스, 예약 시 꿀팁까지 전문가가 전합니다.">
-    <meta name="twitter:image" content="https://t3b06-hg-room-pr-2.vercel.app/images/og-blog.jpg">
-    <style>
-        /* ============= BRUTALIST-AVANTGARDE SYSTEM v2.4 ============= */
-        /* KR-NEON-VOID THEME */
-        :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #1a1a1a;
-            --text-primary: #f0f0f0;
-            --text-secondary: #b0b0b0;
-            --accent: #00ffcc;
-            --accent-dim: #00cc99;
-            --border: #333333;
-            --border-accent: #00ffcc;
-            --shadow-accent: rgba(0,255,204,0.15);
-            --font-mono: 'Courier New', monospace;
-            --font-sans: 'IBM Plex Sans KR', 'Noto Sans KR', sans-serif;
-            --grid: 12;
-            --base-space: 8px;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { color: var(--accent-dim); }
-        img { max-width: 100%; height: auto; display: block; }
-
-        /* LAYOUT */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 calc(var(--base-space)*3); }
-
-        /* HEADER */
-        .header {
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: calc(var(--base-space)*2) 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-family: var(--font-mono);
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent);
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-        }
-        .logo span { color: var(--text-primary); }
-
-        /* HAMBURGER MENU */
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 101;
-        }
-        .nav-toggle span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: var(--text-primary);
-            margin: 6px 0;
-            transition: 0.3s;
-        }
-        .nav {
-            display: flex;
-            gap: calc(var(--base-space)*3);
-            align-items: center;
-        }
-        .nav a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            padding: 4px 0;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.2s;
-        }
-        .nav a:hover { border-bottom-color: var(--accent); }
-        .nav a.active { border-bottom-color: var(--accent); color: var(--accent); }
-
-        /* HERO (블로그 전용) */
-        .blog-hero {
-            padding: calc(var(--base-space)*12) 0 calc(var(--base-space)*6);
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-        }
-        .blog-hero h1 {
-            font-family: var(--font-mono);
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            color: var(--accent);
-            margin-bottom: calc(var(--base-space)*2);
-            text-transform: uppercase;
-        }
-        .blog-hero p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-        .blog-hero .meta {
-            margin-top: calc(var(--base-space)*4);
-            font-size: 0.85rem;
-            color: #666;
-            display: flex;
-            justify-content: center;
-            gap: calc(var(--base-space)*3);
-        }
-        .blog-hero .meta span { display: inline-flex; align-items: center; gap: 4px; }
-
-        /* ARTICLE CONTENT */
-        .article-content {
-            padding: calc(var(--base-space)*8) 0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .article-content h2 {
-            font-family: var(--font-mono);
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-top: calc(var(--base-space)*6);
-            margin-bottom: calc(var(--base-space)*3);
-            color: var(--accent);
-            letter-spacing: -0.5px;
-            border-left: 4px solid var(--accent);
-            padding-left: calc(var(--base-space)*2);
-        }
-        .article-content h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-top: calc(var(--base-space)*4);
-            margin-bottom: calc(var(--base-space)*2);
-            color: var(--text-primary);
-        }
-        .article-content p {
-            margin-bottom: calc(var(--base-space)*3);
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-        .article-content ul, .article-content ol {
-            margin-bottom: calc(var(--base-space)*3);
-            padding-left: calc(var(--base-space)*4);
-            color: var(--text-secondary);
-        }
-        .article-content li { margin-bottom: calc(var(--base-space)*1.5); }
-        .article-content .highlight-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-accent);
-            padding: calc(var(--base-space)*4);
-            border-radius: 4px;
-            margin: calc(var(--base-space)*4) 0;
-        }
-        .article-content .highlight-box p { margin-bottom: 0; color: var(--text-primary); }
-        .article-content .highlight-box strong { color: var(--accent); }
-
-        /* TABLE (데이터 표현) */
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: calc(var(--base-space)*4) 0;
-            font-size: 0.95rem;
-        }
-        .data-table th {
-            background: var(--bg-card);
-            color: var(--accent);
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-            padding: 12px 16px;
-            border: 1px solid var(--border);
-            text-align: left;
-            font-weight: 600;
-        }
-        .data-table td {
-            padding: 12px 16px;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-        }
-        .data-table tr:nth-child(even) td { background: var(--bg-secondary); }
-        .data-table td:first-child { font-weight: 500; color: var(--text-primary); }
-
-        /* CTA (블로그 내) */
-        .blog-cta {
-            background: var(--bg-card);
-            border: 1px solid var(--border-accent);
-            padding: calc(var(--base-space)*6);
-            margin: calc(var(--base-space)*6) 0;
-            text-align: center;
-            border-radius: 4px;
-        }
-        .blog-cta h3 {
-            font-family: var(--font-mono);
-            font-size: 1.4rem;
-            color: var(--accent);
-            margin-bottom: calc(var(--base-space)*2);
-        }
-        .blog-cta p { color: var(--text-secondary); margin-bottom: calc(var(--base-space)*3); }
-        .blog-cta .btn {
-            display: inline-block;
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            padding: 12px 36px;
-            font-family: var(--font-mono);
-            font-size: 1rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .blog-cta .btn:hover {
-            background: var(--accent);
-            color: var(--bg-primary);
-        }
-
-        /* FOOTER */
-        .footer {
-            border-top: 1px solid var(--border);
-            padding: calc(var(--base-space)*6) 0;
-            margin-top: calc(var(--base-space)*8);
-        }
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: calc(var(--base-space)*2);
-        }
-        .footer p {
-            font-size: 0.85rem;
-            color: #555;
-        }
-        .footer a {
-            font-size: 0.85rem;
-            color: #555;
-            margin-left: calc(var(--base-space)*3);
-        }
-        .footer a:hover { color: var(--accent); }
-
-        /* 반응형 */
-        @media (max-width: 768px) {
-            .nav-toggle { display: block; }
-            .nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bg-secondary);
-                border-bottom: 1px solid var(--border);
-                padding: calc(var(--base-space)*3);
-                gap: calc(var(--base-space)*2);
-            }
-            .nav.open { display: flex; }
-            .header-inner { position: relative; }
-            .blog-hero h1 { font-size: 2rem; }
-            .blog-hero p { font-size: 0.95rem; }
-            .article-content h2 { font-size: 1.4rem; }
-            .data-table { font-size: 0.8rem; }
-            .data-table th, .data-table td { padding: 8px 10px; }
-            .footer-inner { flex-direction: column; text-align: center; }
-            .footer a { margin: 0 8px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>화곡 룸싸롱 가격 가이드 – 현명한 선택을 위한 모든 정보</title>
+  <meta name="description" content="화곡 지역 룸싸롱 가격을 구체적으로 파악하고, 이용 상황별로 어떤 요소가 가격에 영향을 미치는지 정리했습니다.">
+  <meta name="keywords" content="화곡, 룸싸롱, 가격, 이용조건, 선택기준, 지역별 차이">
+  <link rel="canonical" href="https://hwagok-review-info.link-hub.org/blog.html">
+  <meta property="og:title" content="화곡 룸싸롱 가격 – 투명한 가격 정보 제공">
+  <meta property="og:description" content="화곡 룸싸롱 이용 전 알아야 할 가격 구조와 체크 포인트를 한눈에 정리했습니다.">
+  <meta property="og:url" content="https://hwagok-review-info.link-hub.org/blog.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://hwagok-review-info.link-hub.org/assets/og-image.jpg">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+  <header class="x-head-7kgu">
+    <h1>화곡 룸싸롱 가격</h1>
+    <p>투명한 가격 정보와 현명한 선택을 위한 체크리스트</p>
+    <nav>
+      <ul class="q-grid-pqrl">
+        <li><a href="/index.html">홈</a></li>
+        <li><a href="/category/room.html">룸싸롱</a></li>
+        <li><a href="/contact.html">문의</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-inner">
-            <div class="logo">화곡<span>룸싸롱</span></div>
-            <button class="nav-toggle" aria-label="메뉴 열기" onclick="document.querySelector('.nav').classList.toggle('open')">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav">
-                <a href="/">홈</a>
-                <a href="/price">가격</a>
-                <a href="/gallery">갤러리</a>
-                <a href="/blog" class="active">블로그</a>
-                <a href="/contact">문의</a>
-            </nav>
-        </div>
-    </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="x-hero-6fnh">
+      <h2>화곡에서 합리적인 가격으로 즐기는 룸싸롱</h2>
+      <p>화곡 지역은 다양한 가격대와 서비스 옵션이 공존합니다. 이번 글에서는 기본 요금부터 옵션별 추가비용, 그리고 상황에 따라 변동될 수 있는 요소들을 체계적으로 정리했습니다. 처음 방문하시는 분도, 자주 이용하시는 분도 모두에게 도움이 되는 내용이니 꼭 확인해 보세요.</p>
+      <p>가격표는 매주 업데이트되며, 실제 이용 시에는 현장 사정에 따라 차이가 있을 수 있습니다. 따라서 방문 전 미리 확인하고, 궁금한 점은 직접 문의하는 것이 가장 안전합니다.</p>
+    </section>
 
-    <!-- BLOG HERO -->
-    <section class="blog-hero">
-        <div class="container">
-            <h1>화곡 룸싸롱 가격: 2025년 프리미엄 공간의
+    <!-- 가격 구조 섹션 -->
+    <section class="x-card-4pux">
+      <h2>1️⃣ 기본 가격 구조</h2>
+      <p>화곡 지역 룸싸롱은 보통 최소 1시간 이용 기준으로 가격이 책정됩니다. 기본 요금은 방 종류와 위치에 따라 차이가 나지만, 일반적으로 1시간당 50,000원에서 120,000원 사이가 일반적입니다. <strong>프리미엄 방</strong>은 150,000원 이상이 될 수 있으며, 이는 방 규모와 인테리어, 제공되는 서비스 수준에 따라 달라집니다.</p>
+      <p>시간당 요금 외에도 <strong>입장료</strong>와 <strong>음료·주류 별도 결제</strong>가 존재합니다. 입장료는 보통 10,000원~20,000원 정도이며, 음료는 선택에 따라 5,000원~30,000원까지 다양합니다. 따라서 실제 결제 금액은 기본 요금 + 입장료 + 음료 비용 형태로 산정됩니다.</p>
+
+      <h3>2️⃣ 옵션별 추가 비용</h3>
+      <p>다양한 추가 옵션이 존재합니다. 예를 들어, <em>특정 테마 방</em>이나 <em>프라이빗 라운지</em> 이용 시 추가 요금이 부과됩니다. 또한, 서비스 제공 시간이 1시간을 초과하거나, <strong>심야(22시 이후)</strong> 이용 시 추가 할증이 적용될 수 있습니다. 심야 할증은 기본 요금의 10%~20% 정도가 일반적입니다.</p>
+      <p>특수 요청(예: 맞춤 음악, 특정 음료 세팅 등) 역시 별도 비용이 청구됩니다. 이러한 옵션은 사전에 조율이 필요하므로, 예약 시 상세히 문의하는 것이 좋습니다.</p>
+    </section>
+
+    <!-- 이용 전 체크리스트 섹션 -->
+    <section class="x-card-4pux">
+      <h2>3️⃣ 이용 전 반드시 확인할 체크리스트</h2>
+      <p>가격을 확인하기 전에 반드시 확인해야 할 항목이 몇 가지 있습니다. 첫째, <strong>예약 시 명시된 가격이 최종 가격인지</strong> 확인하십시오. 일부 업체는 '시간당 가격'만 제시하고, 실제 결제 시 추가 항목을 더해 청구하는 경우가 있습니다.</p>
+      <p>둘째, <strong>취소 및 환불 정책</strong>을 반드시 확인하세요. 최소 2시간 전에 취소할 경우 전액 반환이 가능한 곳이 있는 반면, 당일 취소 시 전액 차감되는 경우도 있습니다. 세 번째로는 <strong>보증금 유무</strong>입니다. 보증금을 요구하는 경우, 이용 종료 후 정상 반환되는지와 보증금 반환 절차를 미리 파악해 두세요.</p>
+
+      <h3>4️⃣ 상황별 가격 변동 요인</h3>
+      <p>고객 수에 따라 가격이 달라지는 경우가 있습니다. 2인 이상 동시 이용 시 인당 요금이 할인되는 경우도 있고, 반대로 인원 증가에 따라 추가 인원당 요금이 부과되는 경우도 있습니다. 또한, <strong>특정 행사 기간(명절·연말 등)</strong>에는 가격이 상승할 수 있으니, 해당 기간을 피하거나 사전에 할인 여부를 확인하는 것이 현명합니다.</p>
+      <p>시간대와 요일도 중요한 변수입니다. 평일 낮시간에는 할인이 적용되는 경우가 많고, 주말 및 야간에는 할증이 적용될 가능성이 높습니다. 따라서 방문 일정을 유연하게 조정하면 비용을 크게 절감할 수 있습니다.</p>
+    </section>
+
+    <!-- FAQ 섹션 -->
+    <section class="x-card-4pux">
+      <h2>❓ 자주 묻는 질문</h2>
+      <h3>Q1. “시간당 가격”에 포함되는 서비스는 무엇인가요?</h3>
+      <p>A1. 기본적으로 방 사용과 기본 음료(물, 기본 주류 한 잔)가 포함됩니다. 추가 주류나 고급 음료는 별도 결제이며, 서비스 인원(예: 안무, 댄서) 비용은 옵션에 따라 추가됩니다.</p>
+
+      <h3>Q2. “입장료”가 별도라면 언제 결제하나요?</h3>
+      <p>A2. 입장료는 일반적으로 예약 시 선결제로 결제합니다. 현장에서는 입장 시 영수증을 확인하고, 추가 비용은 이용 종료 후 정산합니다.</p>
+
+      <h3>Q3. “심야 할증”은 정확히 언제 적용되나요?</h3>
+      <p>A3. 대부분의 화곡 룸싸롱은 22시 이후 이용 시 기본 요금에 10%~20% 할증을 부과합니다. 할증 비율은 업체마다 다르니, 예약 시 명확히 문의하세요.</p>
+
+      <h3>Q4. “보증금”은 어떻게 반환받나요?</h3>
+      <p>A4. 이용 종료 후 방을 원상 복구한 경우, 보증금은 현금 또는 카드 결제로 반환됩니다. 반환 시점은 일반적으로 30분 이내이며, 손상이 있을 경우 부분 차감될 수 있습니다.</p>
+    </section>
+  </main>
+
+  <footer class="x-head-7kgu">
+    <p>&copy; 2026 화곡 룸싸롱 가격 가이드. 모든 권리 보유.</p>
+    <nav>
+      <ul class="q-grid-pqrl">
+        <li><a href="/privacy.html">개인정보 처리방침</a></li>
+        <li><a href="/terms.html">이용약관</a></li>
+      </ul>
+    </nav>
+  </footer>
 </body>
 </html>
