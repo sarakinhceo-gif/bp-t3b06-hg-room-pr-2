@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · t3b06-hg-room-pr-2</title>
+  <meta name="description" content="t3b06-hg-room-pr-2에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://hwagok-review-info.link-hub.org/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ 
+ :root {
+ --bg-color: #142217;
+ --bg-card: #1c3322;
+ --accent: #10b981;
+ --text: #e2e8f0;
+ --text-muted: #94a3b8;
+ --font-stack: 'Pretendard', sans-serif;
+ --border: rgba(255, 255, 255, 0.08);
+ --glass-bg: rgba(255, 255, 255, 0.02);
+ --glass-border: rgba(255, 255, 255, 0.05);
+ }
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ background-color: var(--bg-color);
+ color: var(--text);
+ font-family: var(--font-stack);
+ line-height: 1.8;
+ letter-spacing: -0.01em;
+ padding: 0 24px;
+ overflow-x: hidden;
+ }
+ .wrapper {
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 80px 0;
+ }
+ header {
+ border-bottom: 1px solid var(--border);
+ padding-bottom: 30px;
+ margin-bottom: 60px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+ .brand {
+ font-size: 1.6rem;
+ font-weight: 900;
+ color: #fff;
+ text-transform: uppercase;
+ letter-spacing: 0.06em;
+ text-decoration: none;
+ transition: color 0.3s, transform 0.3s;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+ .brand:hover {
+ color: var(--accent);
+ transform: translateX(2px);
+ }
+ nav {
+ display: flex;
+ gap: 28px;
+ }
+ nav a {
+ color: var(--text-muted);
+ text-decoration: none;
+ font-size: 1rem;
+ font-weight: 700;
+ transition: color 0.3s;
+ position: relative;
+ }
+ nav a::after {
+ content: '';
+ position: absolute;
+ width: 0;
+ height: 2px;
+ bottom: -6px;
+ left: 0;
+ background-color: var(--accent);
+ transition: width 0.3s;
+ }
+ nav a:hover {
+ color: #fff;
+ }
+ nav a:hover::after {
+ width: 100%;
+ }
+ main {
+ padding-bottom: 60px;
+ }
+ .badge {
+ display: inline-block;
+ padding: 6px 14px;
+ background: rgba(255, 255, 255, 0.03);
+ border: 1px solid var(--glass-border);
+ border-radius: 20px;
+ font-size: 0.8rem;
+ font-weight: 800;
+ color: var(--accent);
+ margin-bottom: 28px;
+ text-transform: uppercase;
+ letter-spacing: 0.12em;
+ }
+ h1 {
+ font-size: 3.2rem;
+ font-weight: 900;
+ color: #fff;
+ line-height: 1.2;
+ margin-bottom: 36px;
+ letter-spacing: -0.03em;
+ background: linear-gradient(to right, #ffffff 30%, var(--accent) 100%);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ }
+ .hero-container {
+ position: relative;
+ border-radius: 20px;
+ padding: 50px;
+ background: linear-gradient(145deg, var(--bg-card) 0%, rgba(255,255,255,0.01) 100%);
+ border: 1px solid var(--glass-border);
+ margin-bottom: 60px;
+ box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+ overflow: hidden;
+ }
+ .hero-container::before {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%);
+ pointer-events: none;
+ }
+ .desc-block {
+ font-size: 1.18rem;
+ color: var(--text);
+ margin-bottom: 40px;
+ font-weight: 400;
+ text-align: justify;
+ }
+ .desc-block p {
+ margin-bottom: 24px;
+ text-indent: 4px;
+ }
+ .phone-badge {
+ display: inline-flex;
+ align-items: center;
+ gap: 14px;
+ padding: 20px 40px;
+ background: linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.05) 200%);
+ color: #fff;
+ border-radius: 50px;
+ text-decoration: none;
+ font-weight: 900;
+ font-size: 1.3rem;
+ box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+ transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+ border: 1px solid rgba(255,255,255,0.1);
+ }
+ .phone-badge:hover {
+ transform: translateY(-3px) scale(1.02);
+ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+ border-color: rgba(255,255,255,0.25);
+ }
+ .cards-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+ gap: 28px;
+ margin-top: 60px;
+ }
+ .card {
+ background: var(--bg-card);
+ border: 1px solid var(--border);
+ padding: 36px;
+ border-radius: 16px;
+ transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+ box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+ }
+ .card:hover {
+ border-color: var(--accent);
+ transform: translateY(-5px);
+ box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+ }
+ .card h3 {
+ font-size: 1.35rem;
+ font-weight: 800;
+ color: #fff;
+ margin-bottom: 16px;
+ }
+ .card p {
+ font-size: 1rem;
+ color: var(--text-muted);
+ line-height: 1.7;
+ }
+ .review-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 20px;
+ font-size: 0.9rem;
+ font-weight: 800;
+ border-bottom: 1px dashed var(--border);
+ padding-bottom: 12px;
+ }
+ .review-stars {
+ color: #fbbf24;
+ letter-spacing: 2px;
+ }
+ .review-nick {
+ color: #fff;
+ }
+ .review-date {
+ color: var(--text-muted);
+ }
+ footer {
+ border-top: 1px solid var(--border);
+ padding-top: 50px;
+ margin-top: 100px;
+ text-align: center;
+ font-size: 0.95rem;
+ color: var(--text-muted);
+ }
+ footer a {
+ color: var(--text-muted);
+ text-decoration: none;
+ margin: 0 14px;
+ font-weight: 700;
+ transition: color 0.3s;
+ }
+ footer a:hover {
+ color: var(--accent);
+ }
+ .blog-link {
+ display: inline-block;
+ margin-top: 28px;
+ color: var(--accent);
+ text-decoration: none;
+ font-weight: 800;
+ border-bottom: 1px solid transparent;
+ transition: border-color 0.3s, transform 0.3s;
+ }
+ .blog-link:hover {
+ border-color: var(--accent);
+ transform: translateX(3px);
+ }
+ @media(max-width: 768px) {
+ body { padding: 0 16px; }
+ .wrapper { padding: 50px 0; }
+ h1 { font-size: 2.2rem; }
+ .hero-container { padding: 28px; }
+ .phone-badge { width: 100%; justify-content: center; font-size: 1.1rem; }
+ header { flex-direction: column; gap: 20px; align-items: flex-start; }
+ nav { width: 100%; justify-content: space-between; }
+ }
+ 
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · t3b06-hg-room-pr-2">
+  <meta property="og:description" content="t3b06-hg-room-pr-2에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://hwagok-review-info.link-hub.org/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <a href="index.html" class="brand">👑 화곡 룸싸롱</a>
+ <nav>
+ <a href="index.html">홈</a>
+ <a href="about.html">소개</a>
+ <a href="blog.html">블로그</a>
+ </nav>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 38개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0342.html">화곡 룸싸롱 가격 비교 기준을 통한 홍대 노래방 추천정보 분석</a>
+        <p class="post-item__summary">화곡 룸싸롱 가격 수준을 기준점으로 삼아 홍대 인근 노래방의 비용 체계를 이해하려는 분들이 많습니다. 노래방 선택 시에는 단순히 1시간 이용료만 볼 것이 아니라, 시간대별 변동 폭과 포함된 부가 서</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0343.html">화곡 룸싸롱 가격 확인 전 알아야 할 공덕 셔츠룸 추천정보 실패 지점</a>
+        <p class="post-item__summary">많은 이들이 화곡 룸싸롱 가격 정보를 알아보듯, 공덕 지역의 셔츠룸을 이용하기 전에도 사전 조사가 부족하여 실패를 겪곤 합니다. 대표적인 실패 지점은 예약 없이 방문하여 원하는 시간대에 자리를 구하</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0344.html">화곡 룸싸롱 가격 비교와 연남 유흥 추천정보 방문 전 체크리스트</a>
+        <p class="post-item__summary">화곡 룸싸롱 가격 정보를 검토하며 유흥 문화를 공부하는 분들에게 연남 지역은 매우 흥미로운 장소입니다. 이곳을 선택하기 전에는 위치의 접근성과 대중교통 이용 편의성을 최우선으로 확인해야 합니다. 골</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0345.html">화곡 룸싸롱 가격 확인 전 마곡 가라오케 추천정보 활용법</a>
+        <p class="post-item__summary">오랜만에 만난 지인들과 마곡 지구의 밤 문화를 즐기기로 계획했지만, 막상 정보를 찾으려니 화곡 룸싸롱 가격 비교만 앞세우는 무분별한 광고가 많아 당혹스러울 때가 있습니다. 익숙하지 않은 지역을 방문</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0346.html">화곡 룸싸롱 가격 오해와 마곡 유흥 추천정보의 진실</a>
+        <p class="post-item__summary">흔히들 화곡 룸싸롱 가격 정보만 있으면 모든 유흥 업소를 동일한 기준으로 판단할 수 있다고 생각하지만, 이는 지역 특성을 간과한 큰 오해입니다. 인근 마곡 지구의 분위기와 시스템은 화곡과는 상당한 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0347.html">화곡 룸싸롱 가격 말고 꼭 챙길 합정 노래방 추천정보 리스트</a>
+        <p class="post-item__summary">친구들과 함께하는 자리를 계획할 때 룸의 크기, 음향 시설의 상태, 그리고 접근성은 합정 노래방을 선택하는 필수적인 충족 조건입니다. 많은 이들이 무심결에 화곡 룸싸롱 가격 기준을 합정 지역에 대입</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0348.html">화곡 룸싸롱 가격 비교가 클럽인가요? 연남 클럽 추천정보 활용법</a>
+        <p class="post-item__summary">여러분은 유흥을 즐기기 위해 검색을 하실 때 화곡 룸싸롱 가격 데이터가 연남동의 클럽을 찾는 데 실질적인 도움이 된다고 생각하시나요? 전혀 다른 성격의 유흥을 비슷한 잣대로 비교하는 것 자체가 이미</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0349.html">화곡 룸싸롱 가격 문의 전 합정 셔츠룸 추천정보 확인하기</a>
+        <p class="post-item__summary">많은 이들이 화곡 룸싸롱 가격을 비교하며 합리적인 유흥 공간을 찾고자 노력합니다. 그러나 단순히 비용만을 쫓다 보면 서비스의 질이나 매장의 운영 방식을 놓칠 위험이 큽니다. 건전하고 만족스러운 경험</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0350.html">화곡 룸싸롱 가격 궁금할 때 공덕 가라오케 추천정보 비교</a>
+        <p class="post-item__summary">유흥 문화를 즐기다 보면 화곡 룸싸롱 가격과 같은 구체적인 비용 정보에 민감해지기 마련입니다. 특히 지역마다 형성된 고유의 요금 체계가 존재하기 때문에, 무작정 방문하기보다는 주변 인프라와 가격 구</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0351.html">화곡 룸싸롱 가격 분석 중 발견한 상수 마사지 추천정보 활용</a>
+        <p class="post-item__summary">화곡 룸싸롱 가격 정보를 찾던 분들이 종종 다른 형태의 힐링 서비스를 찾게 되는데, 그 과정에서 상수 지역의 마사지 숍을 자주 마주하게 됩니다. 그러나 예약 과정에서 기본적인 절차를 무시하면 만족도</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0352.html">화곡 룸싸롱 가격 비교와 망원 노래방 추천정보의 접근성</a>
+        <p class="post-item__summary">많은 소비자가 화곡 룸싸롱 가격 수준을 기준 삼아 인근의 다양한 노래방을 탐색하곤 합니다. 망원 지역은 독특한 개성을 가진 업소가 많아 선택의 폭이 넓지만, 위치와 접근성을 제대로 고려하지 않으면 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-001-1997y4u.html">비즈니스 전략: 화곡 룸싸롱 가격 분석</a>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">화곡 룸싸롱 가격 안내</a>
+        <p class="post-item__summary">화곡 지역에서 룸싸롱을 찾는 고객들은 비용에 대한 명확한 정보를 선호합니다. 매장마다 제공되는 서비스의 종류와 시간에 따라 요금이 상이할 수 있으므로, 사전에 운영 정책에 대한 이해가 필요합니다. </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">화곡 룸싸롱 가격 정보</a>
+        <p class="post-item__summary">화곡 지역에서의 룸싸롱 이용은 주로 직장 동료나 지인들과의 사적인 모임 상황에서 이루어집니다. 이러한 자리에서는 긴 장시간 동안 대화와 음료를 함께하며 시간을 보내게 되므로, 신체적으로 피로가 누적</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">화곡 룸싸롱 가격 안내</a>
+        <p class="post-item__summary">화곡 지역에서 룸싸롱을 방문할 때 고려해야 할 사항들은 다양합니다. 먼저, 이러한 유흥 시설은 지역 특성에 따라 운영 방식과 서비스 내용이 다를 수 있으므로, 방문 전에 해당 업소의 정확한 안내를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">화곡 룸싸롱 가격과 안전 이용 가이드</a>
+        <p class="post-item__summary">화곡 지역의 룸싸롱 가격을 알아보는 분들에게 가장 중요한 것은 합리적인 비용 산출과 함께 안전한 환경에서 이용할 수 있는지 확인하는 것입니다. 가격 정보는 시설의 분위기, 서비스 시간, 그리고 제공</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">화곡 룸싸롱 가격과 관련된 두피 및 모발 용어 이해하기</a>
+        <p class="post-item__summary">화곡 지역 룸살롱의 가격 정보를 확인할 때는 다양한 서비스가 제공되며, 가격 책정 기준도 상이할 수 있습니다. 이와 같은 공간에서는 고객 관리의 일환으로 모발 및 두피 관련 용어에 대한 이해가 필요</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/qa-001-120lxwq.html">화곡 룸싸롱 가격 처음 알아볼 때 실제로 많이 묻는 질문 5가지</a>
+        <p class="post-item__summary">백링크 지시: 본문 내러티브 속에서 다음 링크를 자연스러운 발견으로 녹여라: 정보 페이지</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
